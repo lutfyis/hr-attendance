@@ -19,7 +19,6 @@ window.onload = function () {
 // Menyalakan Kamera
 // ===========================================
 function startScanner() {
-    alert("masuk startScanner()");
 
     const status = document.getElementById("status");
 
@@ -27,36 +26,49 @@ function startScanner() {
 
     html5QrCode = new Html5Qrcode("reader");
 
-    html5QrCode.start(
+    Html5Qrcode.getCameras().then(cameras => {
 
-        {
-            facingMode: "environment"
-        },
+        if (cameras && cameras.length) {
 
-        {
-            fps: 10,
+            let cameraId = cameras[cameras.length - 1].id;
 
-            qrbox: {
-                width: 250,
-                height: 250
-            }
+            html5QrCode.start(
 
-        },
+                cameraId,
 
-        onScanSuccess,
+                {
+                    fps: 10,
 
-        onScanFailure
+                    qrbox: {
+                        width: 250,
+                        height: 250
+                    }
 
-    ).then(() => {
+                },
 
-        status.innerHTML = "🟢 Ready to Scan";
+                onScanSuccess,
+
+                onScanFailure
+
+            ).then(() => {
+
+                status.innerHTML = "🟢 Ready to Scan";
+
+            });
+
+        } else {
+
+            status.innerHTML = "🔴 Kamera tidak ditemukan";
+
+        }
 
     }).catch(err => {
 
+        alert(err);
+
         console.error(err);
 
-        status.innerHTML =
-            "🔴 Kamera gagal dibuka";
+        status.innerHTML = "🔴 Gagal membuka kamera";
 
     });
 
