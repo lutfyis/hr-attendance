@@ -9,198 +9,115 @@
 }
 
 body{
-
     background:#FFF9EC;
-
     font-family:Arial, Helvetica, sans-serif;
-
     color:#333;
-
 }
 
 .container{
-
     max-width:500px;
-
     margin:auto;
-
     padding:25px;
-
 }
-
 
 /* ===================================
    HEADER
 =================================== */
 
 .header{
-
-    background:linear-gradient(135deg,#FFD54F,#FFC107);
-
-    padding:25px;
-
-    border-radius:0 0 25px 25px;
-
-    margin-bottom:25px;
-
-    box-shadow:0 5px 20px rgba(0,0,0,.12);
-
+    text-align:center;
+    margin-bottom:30px;
 }
 
 .header h1{
-
     color:#D18B00;
-
     font-size:42px;
-
     margin-bottom:10px;
-
 }
 
 .header p{
-
     color:#666;
-
     margin:4px;
-
 }
 
 .header b{
-
     color:#444;
-
 }
-
 
 /* ===================================
    DASHBOARD
 =================================== */
 
 .dashboard{
-
     display:flex;
-
     gap:15px;
-
     justify-content:center;
-
     margin-bottom:25px;
-
 }
 
 .card{
-
     flex:1;
-
     background:white;
-
     border-radius:18px;
-
     text-align:center;
-
     padding:20px;
-
     box-shadow:0 5px 15px rgba(0,0,0,.08);
-
 }
 
 .card h2{
-
     font-size:36px;
-
     margin:8px 0;
-
     color:#333;
-
 }
 
 .card p{
-
     color:#666;
-
 }
-
 
 /* ===================================
    SCANNER
 =================================== */
 
 .scanner{
-
     background:white;
-
     border:3px dashed #FFC107;
-
     border-radius:22px;
-
     padding:25px;
-
     min-height:320px;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     margin-bottom:25px;
-
 }
 
+#reader{
+    width:100%;
+}
 
 /* ===================================
    STATUS
 =================================== */
 
 .status{
-
     background:#FFF3B0;
-
     border-left:6px solid #FFC107;
-
     border-radius:15px;
-
     padding:18px;
-
     text-align:center;
-
     margin-bottom:25px;
-
     font-size:18px;
-
 }
-
 
 /* ===================================
    FOOTER
 =================================== */
 
 .footer{
-
     text-align:center;
-
     color:#888;
-
     font-size:13px;
-
-   #reader{
-    width:100%;
-}
-
-#reader video{
-    width:100% !important;
-    height:auto !important;
-    display:block !important;
-}
-
-#reader__scan_region{
-    min-height:300px;
-}
-
 }
 
 .footer p{
-
     margin:4px;
-
 }
