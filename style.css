@@ -183,6 +183,20 @@ body{
 
     font-size:13px;
 
+   #reader{
+    width:100%;
+}
+
+#reader video{
+    width:100% !important;
+    height:auto !important;
+    display:block !important;
+}
+
+#reader__scan_region{
+    min-height:300px;
+}
+
 }
 
 .footer p{
