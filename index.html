@@ -1,16 +1,87 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HR Attendance</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>HR Attendance</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://unpkg.com/html5-qrcode"></script>
+
 </head>
 
 <body>
 
+<div class="container">
+
+<div class="header">
+
 <h1>💛 HR Attendance</h1>
 
-<p>Coming Soon...</p>
+<p>Human Resource Development</p>
+
+<p><b>Sugar Group Companies</b></p>
+
+</div>
+
+<div class="dashboard">
+
+<div class="card">
+
+<h2 id="total">0</h2>
+
+<p>Total Peserta</p>
+
+</div>
+
+<div class="card">
+
+<h2 id="hadir">0</h2>
+
+<p>Sudah Hadir</p>
+
+</div>
+
+<div class="card">
+
+<h2 id="belum">0</h2>
+
+<p>Belum Hadir</p>
+
+</div>
+
+</div>
+
+<div class="scanner">
+
+<div id="reader"></div>
+
+</div>
+
+<div class="status" id="status">
+
+🟡 Ready to Scan
+
+</div>
+
+<div class="footer">
+
+<p><b>Version 1.0</b></p>
+
+<p>Internal HR Application</p>
+
+<p>Developed by LIS • HRD SGC</p>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
+
 </html>
