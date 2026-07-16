@@ -1,17 +1,29 @@
-// =====================================
+// ===========================================
 // HR Attendance v1.0
-// Camera Engine
-// =====================================
+// Checkpoint 7 - Camera Engine
+// ===========================================
 
+let html5QrCode;
+
+// ===========================================
+// Saat halaman dibuka
+// ===========================================
 window.onload = function () {
 
     startScanner();
 
 };
 
+// ===========================================
+// Menyalakan Kamera
+// ===========================================
 function startScanner() {
 
-    const html5QrCode = new Html5Qrcode("reader");
+    const status = document.getElementById("status");
+
+    status.innerHTML = "🟡 Membuka kamera...";
+
+    html5QrCode = new Html5Qrcode("reader");
 
     html5QrCode.start(
 
@@ -21,35 +33,57 @@ function startScanner() {
 
         {
             fps: 10,
-            qrbox: 250
+
+            qrbox: {
+                width: 250,
+                height: 250
+            }
+
         },
 
         onScanSuccess,
 
         onScanFailure
 
-    ).catch(err => {
+    ).then(() => {
+
+        status.innerHTML = "🟢 Ready to Scan";
+
+    }).catch(err => {
 
         console.error(err);
 
-        document.getElementById("status").innerHTML =
+        status.innerHTML =
             "🔴 Kamera gagal dibuka";
 
     });
 
 }
 
+// ===========================================
+// QR Berhasil Dibaca
+// ===========================================
 function onScanSuccess(decodedText) {
 
-    document.getElementById("status").innerHTML =
-        "🟢 QR Terdeteksi";
+    // Hentikan scanner supaya QR tidak terbaca berkali-kali
+    html5QrCode.stop();
 
-    console.log(decodedText);
+    document.getElementById("status").innerHTML = `
+        <h3>✅ QR Terdeteksi</h3>
+        <br>
+        <b>${decodedText}</b>
+    `;
+
+    console.log("QR :", decodedText);
 
 }
 
+// ===========================================
+// QR Gagal Dibaca
+// ===========================================
 function onScanFailure(error) {
 
-    // sementara dikosongkan
+    // Sengaja dikosongkan
+    // Agar tidak memenuhi console
 
 }
