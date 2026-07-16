@@ -19,6 +19,7 @@ window.onload = function () {
 // Menyalakan Kamera
 // ===========================================
 function startScanner() {
+    alert("masuk startScanner()");
 
     const status = document.getElementById("status");
 
