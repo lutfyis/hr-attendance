@@ -9,6 +9,7 @@ let html5QrCode;
 // Saat halaman dibuka
 // ===========================================
 window.onload = function () {
+    alert("script jalan");
 
     startScanner();
 
