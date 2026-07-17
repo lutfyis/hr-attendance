@@ -156,6 +156,7 @@ document.getElementById("status").innerHTML =
     "🟠 Mengambil data peserta...";
 
     const peserta = await getParticipant(decodedText);
+    await loadDashboard();
 
 if (peserta.success) {
 
