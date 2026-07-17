@@ -263,6 +263,26 @@ const manualArea = document.getElementById("manualAttendanceArea");
 manualArea.style.display =
     peserta.status === "Hadir" ? "none" : "block";
 }
+
+//==========================================
+//Tombol tandai hadir acctivated
+//==========================================
+async function confirmManualAttendance(){
+
+    if(!selectedParticipantId){
+        return;
+    }
+
+    const response = await fetch(
+        `${URL_APPS_SCRIPT}?action=attendance&id=${selectedParticipantId}`
+    );
+
+    const result = await response.json();
+
+    console.log(result);
+
+}
+
 // ===========================================
 // TAMPILKAN RESULT CARD
 // ===========================================
