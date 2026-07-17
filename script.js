@@ -256,7 +256,67 @@ async function showSearchResult(id){
     document.getElementById("jam").innerHTML=peserta.jam || "-";
 
 }
+// ===========================================
+// TAMPILKAN RESULT CARD
+// ===========================================
+function showAttendanceResult(peserta){
 
+    const card = document.getElementById("resultCard");
+    const title = document.getElementById("resultTitle");
+
+    card.style.display = "block";
+
+    card.classList.remove(
+        "success-card",
+        "warning-card",
+        "error-card"
+    );
+
+    title.classList.remove(
+        "success-title",
+        "warning-title",
+        "error-title"
+    );
+
+    if (peserta.success){
+
+        card.classList.add("success-card");
+        title.classList.add("success-title");
+
+        title.innerHTML="✅ ABSENSI BERHASIL";
+
+    }else if(peserta.alreadyPresent){
+
+        card.classList.add("warning-card");
+        title.classList.add("warning-title");
+
+        title.innerHTML="⚠️ SUDAH ABSEN";
+
+    }else{
+
+        card.classList.add("error-card");
+        title.classList.add("error-title");
+
+        title.innerHTML="❌ PESERTA TIDAK DITEMUKAN";
+
+    }
+
+    document.getElementById("nama").innerHTML =
+        peserta.nama || "-";
+
+    document.getElementById("universitas").innerHTML =
+        peserta.universitas || "-";
+
+    document.getElementById("strata").innerHTML =
+        peserta.strata || "-";
+
+    document.getElementById("jurusan").innerHTML =
+        peserta.jurusan || "-";
+
+    document.getElementById("jam").innerHTML =
+        peserta.jam || "-";
+
+}
 // ===========================================
 // QR Berhasil Dibaca
 // ===========================================
