@@ -149,7 +149,11 @@ body{
 
 .result-card h2{
     font-size:24px;
-    margin-bottom:20px;
+    margin-bottom:18px;
+    padding:12px;
+    border-radius:12px;
+    text-align:center;
+    color:#fff;
 }
 
 .result-card p{
@@ -188,4 +192,20 @@ body{
 .error-card{
     background:#FDECEC;
     border-left:6px solid #C62828;
+}
+
+/* ===========================
+   RESULT TITLE COLOR
+=========================== */
+
+.success-title{
+    background:#2E7D32;
+}
+
+.warning-title{
+    background:#F9A825;
+}
+
+.error-title{
+    background:#C62828;
 }
