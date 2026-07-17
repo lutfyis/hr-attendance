@@ -63,18 +63,51 @@ function startScanner() {
 // ===========================================
 // QR Berhasil Dibaca
 // ===========================================
+// ===========================================
+// QR Berhasil Dibaca
+// ===========================================
 function onScanSuccess(decodedText) {
 
-    // Hentikan scanner supaya QR tidak terbaca berkali-kali
+    // Hentikan scanner
     html5QrCode.stop();
 
-    document.getElementById("status").innerHTML = `
-        <h3>✅ QR Terdeteksi</h3>
-        <br>
-        <b>${decodedText}</b>
-    `;
-
     console.log("QR :", decodedText);
+
+    // Sembunyikan scanner
+    document.querySelector(".scanner").style.display = "none";
+
+    // Tampilkan Result Card
+    const card = document.getElementById("resultCard");
+
+    card.style.display = "block";
+
+    // Dummy data (nanti diganti dari Google Sheets)
+    document.getElementById("resultTitle").innerHTML = "✅ ABSENSI BERHASIL";
+
+    document.getElementById("nama").innerHTML = "Lutfy Ika Sutanti";
+
+    document.getElementById("universitas").innerHTML = "ITS";
+
+    document.getElementById("strata").innerHTML = "S1";
+
+    document.getElementById("jurusan").innerHTML = "Fisika";
+
+    document.getElementById("jam").innerHTML =
+        new Date().toLocaleTimeString("id-ID");
+
+    document.getElementById("status").innerHTML =
+        "🟢 Absensi Berhasil";
+
+    // Setelah 3 detik kembali ke scanner
+    setTimeout(() => {
+
+        card.style.display = "none";
+
+        document.querySelector(".scanner").style.display = "block";
+
+        startScanner();
+
+    },3000);
 
 }
 
