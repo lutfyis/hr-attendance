@@ -138,6 +138,12 @@ async function onScanSuccess(decodedText) {
     const card = document.getElementById("resultCard");
 
     card.style.display = "block";
+    // Reset warna card
+card.classList.remove(
+    "success-card",
+    "warning-card",
+    "error-card"
+);
 
 // Loading
 document.getElementById("resultTitle").innerHTML = "⏳ MEMPROSES...";
@@ -159,6 +165,7 @@ document.getElementById("status").innerHTML =
     await loadDashboard();
 
 if (peserta.success) {
+    card.classList.add("success-card");
 
     // ✅ Berhasil
     document.getElementById("resultTitle").innerHTML =
@@ -177,6 +184,7 @@ if (peserta.success) {
         peserta.jurusan;
 
 } else if (peserta.alreadyPresent) {
+    card.classList.add("warning-card");
 
     // ⚠️ Sudah hadir
     document.getElementById("resultTitle").innerHTML =
@@ -198,7 +206,8 @@ if (peserta.success) {
         "🟠 Peserta sudah melakukan absensi";
 
 } else {
-
+card.classList.add("error-card");
+    
     // ❌ Tidak ditemukan
     document.getElementById("resultTitle").innerHTML =
         "❌ PESERTA TIDAK DITEMUKAN";
@@ -215,8 +224,6 @@ if (peserta.success) {
     document.getElementById("jam").innerHTML =
         new Date().toLocaleTimeString("id-ID");
 
-    document.getElementById("status").innerHTML =
-        "🟢 Absensi Berhasil";
 
     // Setelah 3 detik kembali ke scanner
 setTimeout(async () => {
