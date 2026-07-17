@@ -31,8 +31,8 @@ body{
 
 .header h1{
     color:#D18B00;
-    font-size:34px;
-    margin-bottom:8px;
+    font-size:32px;
+    margin-bottom:10px;
 }
 
 .header p{
@@ -303,7 +303,16 @@ body{
 }
 
 .logo{
-    width:120px;
+    width:85px;
+    height:auto;
     display:block;
-    margin:20px auto;
+    margin:10px auto 15px;
+}
+@media (max-width: 768px){
+
+    .header h1{
+        font-size:26px;
+        line-height:1.2;
+    }
+
 }
