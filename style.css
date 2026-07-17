@@ -301,3 +301,9 @@ body{
 .search-item:hover{
     background:#FFF5DD;
 }
+
+.logo{
+    width:120px;
+    display:block;
+    margin:20px auto;
+}
