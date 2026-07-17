@@ -433,36 +433,8 @@ document.getElementById("status").innerHTML =
     const peserta = await getParticipant(decodedText);
     await loadDashboard();
 
-if (peserta.success) {
-
-    playBeep(900, 150);
-
-if (navigator.vibrate) {
-    navigator.vibrate(100);
-}
-
- showAttendanceResult(peserta);
-
-} else if (peserta.alreadyPresent) {
-    playBeep(700, 120);
-
-    setTimeout(() => {
-    playBeep(700, 120);
-    }, 180);
-
-   if (navigator.vibrate) {
-    navigator.vibrate([80, 80, 80]);
-    }
-   showAttendanceResult(peserta);
-} else {
-    playBeep(300, 500);
-
-    if (navigator.vibrate) {
-    navigator.vibrate(400);
-    }
-
-    showAttendanceResult(peserta);
-}
+showAttendanceResult(peserta);
+    
     document.getElementById("jam").innerHTML =
     peserta.jam || "Belum Hadir";
 
