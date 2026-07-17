@@ -153,7 +153,7 @@ body{
     padding:12px;
     border-radius:12px;
     text-align:center;
-    color:#fff;
+    color:#222;
 }
 
 .result-card p{
@@ -200,12 +200,16 @@ body{
 
 .success-title{
     background:#2E7D32;
+   color:#fff;
+   
 }
 
 .warning-title{
     background:#F9A825;
+   color:#222;
 }
 
 .error-title{
     background:#C62828;
+   color:#fff;
 }
