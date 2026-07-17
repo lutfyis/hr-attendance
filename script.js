@@ -121,37 +121,6 @@ async function loadDashboard() {
 
 }
 
-//============================================
-//Attendance result
-//============================================
-function showAttendanceResult(result, type){
-
-    if(type === "success"){
-
-        document.getElementById("resultTitle").innerHTML =
-            "✅ ABSENSI BERHASIL";
-
-        document.getElementById("nama").innerHTML =
-            result.nama || "-";
-
-        document.getElementById("universitas").innerHTML =
-            result.universitas || "-";
-
-        document.getElementById("strata").innerHTML =
-            result.strata || "-";
-
-        document.getElementById("jurusan").innerHTML =
-            result.jurusan || "-";
-
-        document.getElementById("jam").innerHTML =
-            result.jam || "-";
-
-        document.getElementById("status").innerHTML =
-            "🟢 Absensi berhasil";
-    }
-
-}
-
 // ===========================================
 // bunyi beep
 // ===========================================
@@ -324,7 +293,7 @@ async function confirmManualAttendance(){
 }
 
 // ===========================================
-// TAMPILKAN RESULT CARD
+// attendance resultt
 // ===========================================
 function showAttendanceResult(peserta){
 
@@ -446,7 +415,7 @@ if (navigator.vibrate) {
     card.classList.add("success-card");
     title.classList.add("success-title");
 
-   showAttendanceResult(peserta, "success");
+ showAttendanceResult(peserta);
 
 } else if (peserta.alreadyPresent) {
     playBeep(700, 120);
