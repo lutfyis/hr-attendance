@@ -120,3 +120,18 @@ function onScanFailure(error) {
     // Agar tidak memenuhi console
 
 }
+async function testConnection() {
+
+    const response = await fetch(URL_APPS_SCRIPT, {
+        method: "POST",
+        body: new URLSearchParams({
+            action: "test"
+        })
+    });
+
+    const data = await response.json();
+
+    console.log(data);
+
+}
+
