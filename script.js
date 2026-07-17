@@ -262,10 +262,15 @@ async function showSearchResult(id){
 
     selectedParticipantId = peserta.id;
 
-const manualArea = document.getElementById("manualAttendanceArea");
+    const manualArea = document.getElementById("manualAttendanceArea");
 
-manualArea.style.display =
+    manualArea.style.display =
     peserta.status === "Hadir" ? "none" : "block";
+    if (peserta.status === "Hadir") {
+
+    setTimeout(resetManualAttendance, 3000);
+
+}
 }
 
 //==========================================
@@ -301,19 +306,8 @@ async function confirmManualAttendance() {
     document.getElementById("manualAttendanceArea").style.display = "none";
 
     // Kembali siap untuk peserta berikutnya
-    setTimeout(() => {
-
-        document.getElementById("resultCard").style.display = "none";
-
-        document.getElementById("searchInput").value = "";
-        document.getElementById("searchResult").innerHTML = "";
-
-        selectedParticipantId = null;
-
-        document.getElementById("searchInput").focus();
-
-    }, 3000);
-
+    setTimeout(resetManualAttendance, 3000);
+    
     console.log(result);
 
 }
@@ -405,7 +399,24 @@ function showAttendanceResult(peserta){
         peserta.jam || "-";
 
 }
+=============================================
+//reset manual attemdance
+============================================
+function resetManualAttendance() {
 
+    document.getElementById("resultCard").style.display = "none";
+
+    document.getElementById("manualAttendanceArea").style.display = "none";
+
+    document.getElementById("searchInput").value = "";
+    document.getElementById("searchResult").innerHTML = "";
+
+    selectedParticipantId = null;
+
+    document.getElementById("searchInput").focus();
+
+}
+    
 // ===========================================
 // QR Berhasil Dibaca
 // ===========================================
