@@ -124,22 +124,31 @@ async function loadDashboard() {
 //============================================
 //Attendance result
 //============================================
-function showAttendanceResult(result){
+function showAttendanceResult(result, type){
 
-    document.getElementById("nama").innerHTML =
-        result.nama || "-";
+    if(type === "success"){
 
-    document.getElementById("universitas").innerHTML =
-        result.universitas || "-";
+        document.getElementById("resultTitle").innerHTML =
+            "✅ ABSENSI BERHASIL";
 
-    document.getElementById("strata").innerHTML =
-        result.strata || "-";
+        document.getElementById("nama").innerHTML =
+            result.nama || "-";
 
-    document.getElementById("jurusan").innerHTML =
-        result.jurusan || "-";
+        document.getElementById("universitas").innerHTML =
+            result.universitas || "-";
 
-    document.getElementById("jam").innerHTML =
-        result.jam || "-";
+        document.getElementById("strata").innerHTML =
+            result.strata || "-";
+
+        document.getElementById("jurusan").innerHTML =
+            result.jurusan || "-";
+
+        document.getElementById("jam").innerHTML =
+            result.jam || "-";
+
+        document.getElementById("status").innerHTML =
+            "🟢 Absensi berhasil";
+    }
 
 }
 
@@ -437,11 +446,7 @@ if (navigator.vibrate) {
     card.classList.add("success-card");
     title.classList.add("success-title");
 
-    // ✅ Berhasil
-    document.getElementById("resultTitle").innerHTML =
-        "✅ ABSENSI BERHASIL";
-
-   showAttendanceResult(peserta);
+   showAttendanceResult(peserta, "success");
 
 } else if (peserta.alreadyPresent) {
     playBeep(700, 120);
