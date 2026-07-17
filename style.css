@@ -31,8 +31,8 @@ body{
 
 .header h1{
     color:#D18B00;
-    font-size:42px;
-    margin-bottom:10px;
+    font-size:34px;
+    margin-bottom:8px;
 }
 
 .header p{
@@ -56,12 +56,19 @@ body{
 }
 
 .card{
-    flex:1;
-    background:white;
-    border-radius:18px;
-    text-align:center;
-    padding:20px;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    background:#ffffff;
+    border-radius:15px;
+    padding:18px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-3px);
+}
+
+.card:hover{
+    transform:translateY(-3px);
 }
 
 .card h2{
@@ -79,17 +86,18 @@ body{
 =================================== */
 
 .scanner{
-    background:white;
-    border:3px dashed #FFC107;
-    border-radius:22px;
-    padding:25px;
-    min-height:320px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    margin-bottom:25px;
+    background:#ffffff;
+    padding:18px;
+    border-radius:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    margin-top:20px;
+   
 }
-
+.scanner-title{
+    text-align:center;
+    margin-bottom:12px;
+    color:#444;
+}
 #reader{
     width:100%;
 }
@@ -99,13 +107,14 @@ body{
 =================================== */
 
 .status{
-    background:#FFF3B0;
-    border-left:6px solid #FFC107;
-    border-radius:15px;
-    padding:18px;
-    text-align:center;
+    margin-top:15px;
     margin-bottom:25px;
-    font-size:18px;
+    padding:15px;
+    border-radius:12px;
+    background:#FFF8D6;
+    color:#9C6B00;
+    font-weight:bold;
+    text-align:center;
 }
 
 /* ===================================
@@ -120,4 +129,45 @@ body{
 
 .footer p{
     margin:4px;
+}
+/* ===========================
+   RESULT CARD
+=========================== */
+
+.result-card {
+    display: none;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 15px;
+    margin-bottom:20px;
+    text-align: left;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    border-left: 6px solid #28a745;
+    animation: fadeIn 0.3s ease;
+}
+
+.result-card h2{
+    margin-bottom:15px;
+    text-align:center;
+    color:#28a745;
+}
+
+.result-card p{
+    margin:8px 0;
+    font-size:15px;
+}
+
+.result-card span{
+    font-weight:bold;
+}
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
