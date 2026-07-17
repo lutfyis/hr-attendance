@@ -293,9 +293,6 @@ async function confirmManualAttendance() {
 
     const result = await response.json();
 
-    btn.disabled = false;
-    btn.innerHTML = "✅ Tandai Hadir";
-
     // Refresh dashboard
     await loadDashboard();
 
