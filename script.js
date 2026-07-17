@@ -2,7 +2,7 @@
 // HR Attendance v1.0
 // Checkpoint 7 - Camera Engine
 // ===========================================
-
+let selectedParticipantId = null;
 let html5QrCode;
 const URL_APPS_SCRIPT = "https://script.google.com/macros/s/AKfycbwd1-KCKOQjEWHT4r0z_dQ0VFqEhautnNswIxqFLPIXRNH_sULwMVsCoRALAofIYPYN/exec";
 
@@ -255,6 +255,18 @@ async function showSearchResult(id){
     document.getElementById("jurusan").innerHTML=peserta.jurusan;
     document.getElementById("jam").innerHTML=peserta.jam || "-";
 
+    selectedParticipantId = peserta.id;
+
+const manualArea = document.getElementById("manualAttendanceArea");
+
+if (
+    peserta.status &&
+    peserta.status.toLowerCase() === "belum hadir"
+) {
+    manualArea.style.display = "block";
+} else {
+    manualArea.style.display = "none";
+}
 }
 // ===========================================
 // TAMPILKAN RESULT CARD
