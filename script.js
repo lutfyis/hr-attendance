@@ -285,9 +285,20 @@ async function confirmManualAttendance(){
         `${URL_APPS_SCRIPT}?action=attendance&id=${selectedParticipantId}`
     );
 
-    const result = await response.json();
-        btn.disabled = false;
-        btn.innerHTML = "✅ Tandai Hadir";
+   const result = await response.json();
+
+    btn.disabled = false;
+    btn.innerHTML = "✅ Tandai Hadir";
+
+    // Refresh dashboard
+    await loadDashboard();
+
+    // Tampilkan hasil absensi
+    showAttendanceResult(result);
+
+    // Sembunyikan tombol manual
+    document.getElementById("manualAttendanceArea").style.display = "none";
+
     console.log(result);
 
 }
