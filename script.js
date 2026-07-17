@@ -271,21 +271,22 @@ manualArea.style.display =
 //==========================================
 //Tombol tandai hadir acctivated
 //==========================================
-async function confirmManualAttendance(){
+async function confirmManualAttendance() {
 
-    if(!selectedParticipantId){
+    if (!selectedParticipantId) {
         return;
     }
+
     const btn = document.getElementById("btnManualAttendance");
 
-        btn.disabled = true;
-        btn.innerHTML = "⏳ Menyimpan...";
-    
+    btn.disabled = true;
+    btn.innerHTML = "⏳ Menyimpan...";
+
     const response = await fetch(
         `${URL_APPS_SCRIPT}?action=attendance&id=${selectedParticipantId}`
     );
 
-   const result = await response.json();
+    const result = await response.json();
 
     btn.disabled = false;
     btn.innerHTML = "✅ Tandai Hadir";
@@ -299,10 +300,23 @@ async function confirmManualAttendance(){
     // Sembunyikan tombol manual
     document.getElementById("manualAttendanceArea").style.display = "none";
 
+    // Kembali siap untuk peserta berikutnya
+    setTimeout(() => {
+
+        document.getElementById("resultCard").style.display = "none";
+
+        document.getElementById("searchInput").value = "";
+        document.getElementById("searchResult").innerHTML = "";
+
+        selectedParticipantId = null;
+
+        document.getElementById("searchInput").focus();
+
+    }, 3000);
+
     console.log(result);
 
 }
-
 // ===========================================
 // attendance resultt
 // ===========================================
