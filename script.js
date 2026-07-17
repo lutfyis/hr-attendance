@@ -136,6 +136,13 @@ async function onScanSuccess(decodedText) {
 
     // Tampilkan Result Card
     const card = document.getElementById("resultCard");
+    const title = document.getElementById("resultTitle");
+
+title.classList.remove(
+    "success-title",
+    "warning-title",
+    "error-title"
+);
 
     card.style.display = "block";
     // Reset warna card
@@ -165,7 +172,9 @@ document.getElementById("status").innerHTML =
     await loadDashboard();
 
 if (peserta.success) {
+
     card.classList.add("success-card");
+    title.classList.add("success-title");
 
     // ✅ Berhasil
     document.getElementById("resultTitle").innerHTML =
@@ -184,7 +193,10 @@ if (peserta.success) {
         peserta.jurusan;
 
 } else if (peserta.alreadyPresent) {
+
     card.classList.add("warning-card");
+    title.classList.add("warning-title");
+
 
     // ⚠️ Sudah hadir
     document.getElementById("resultTitle").innerHTML =
@@ -206,8 +218,10 @@ if (peserta.success) {
         "🟠 Peserta sudah melakukan absensi";
 
 } else {
-card.classList.add("error-card");
-    
+
+    card.classList.add("error-card");
+    title.classList.add("error-title");
+   
     // ❌ Tidak ditemukan
     document.getElementById("resultTitle").innerHTML =
         "❌ PESERTA TIDAK DITEMUKAN";
