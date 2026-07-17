@@ -87,6 +87,33 @@ async function getParticipant(id) {
 
 }
 
+//Dashboard otomatis berubah
+async function loadDashboard() {
+
+    try {
+
+        const response = await fetch(
+            `${URL_APPS_SCRIPT}?action=dashboard`
+        );
+
+        const data = await response.json();
+
+        document.getElementById("total").innerHTML =
+            data.total;
+
+        document.getElementById("hadir").innerHTML =
+            data.hadir;
+
+        document.getElementById("belum").innerHTML =
+            data.belum;
+
+    } catch (err) {
+
+        console.error("Dashboard gagal dimuat", err);
+
+    }
+
+}
 // ===========================================
 // QR Berhasil Dibaca
 // ===========================================
