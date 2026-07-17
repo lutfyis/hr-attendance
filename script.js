@@ -11,6 +11,8 @@ const URL_APPS_SCRIPT = "https://script.google.com/macros/s/AKfycbwd1-KCKOQjEWHT
 // ===========================================
 window.onload = function () {
 
+    loadDashboard();
+
     startScanner();
 
 };
