@@ -91,7 +91,7 @@ async function getParticipant(id) {
 // ===========================================
 // QR Berhasil Dibaca
 // ===========================================
-function onScanSuccess(decodedText) {
+async function onScanSuccess(decodedText) {
 
     // Hentikan scanner
     html5QrCode.stop();
@@ -106,16 +106,30 @@ function onScanSuccess(decodedText) {
 
     card.style.display = "block";
 
-    // Dummy data (nanti diganti dari Google Sheets)
+    const peserta = await getParticipant(decodedText);
+
+if (!peserta.success) {
+
+    document.getElementById("resultTitle").innerHTML = "❌ PESERTA TIDAK DITEMUKAN";
+
+    document.getElementById("nama").innerHTML = "-";
+    document.getElementById("universitas").innerHTML = "-";
+    document.getElementById("strata").innerHTML = "-";
+    document.getElementById("jurusan").innerHTML = "-";
+
+} else {
+
     document.getElementById("resultTitle").innerHTML = "✅ ABSENSI BERHASIL";
 
-    document.getElementById("nama").innerHTML = "Lutfy Ika Sutanti";
+    document.getElementById("nama").innerHTML = peserta.nama;
 
-    document.getElementById("universitas").innerHTML = "ITS";
+    document.getElementById("universitas").innerHTML = peserta.universitas;
 
-    document.getElementById("strata").innerHTML = "S1";
+    document.getElementById("strata").innerHTML = peserta.strata;
 
-    document.getElementById("jurusan").innerHTML = "Fisika";
+    document.getElementById("jurusan").innerHTML = peserta.jurusan;
+
+}
 
     document.getElementById("jam").innerHTML =
         new Date().toLocaleTimeString("id-ID");
