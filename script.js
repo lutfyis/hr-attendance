@@ -15,6 +15,10 @@ window.onload = function () {
 
     startScanner();
 
+    document
+        .getElementById("searchInput")
+        .addEventListener("keyup", searchParticipant);
+
 };
 
 // ===========================================
@@ -140,6 +144,60 @@ function playBeep(frequency = 800, duration = 150) {
         oscillator.stop();
         audioContext.close();
     }, duration);
+
+}
+
+// ===========================================
+// SEARCH PESERTA
+// ===========================================
+async function searchParticipant() {
+
+    const keyword = document
+        .getElementById("searchInput")
+        .value
+        .trim();
+
+    if (keyword.length < 3) {
+        document.getElementById("searchResult").innerHTML = "";
+        return;
+    }
+
+    try {
+
+        const response = await fetch(
+            `${URL_APPS_SCRIPT}?action=search&keyword=${encodeURIComponent(keyword)}`
+        );
+
+        const data = await response.json();
+
+        let html = "";
+
+        if (data.length === 0) {
+
+            html = "<p>Tidak ada peserta ditemukan.</p>";
+
+        } else {
+
+            data.forEach(p => {
+
+                html += `
+                    <div class="search-item">
+                        <strong>${p.nama}</strong><br>
+                        <small>${p.universitas}</small>
+                    </div>
+                `;
+
+            });
+
+        }
+
+        document.getElementById("searchResult").innerHTML = html;
+
+    } catch (err) {
+
+        console.error(err);
+
+    }
 
 }
 
