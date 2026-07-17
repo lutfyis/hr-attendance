@@ -314,28 +314,39 @@ function showAttendanceResult(peserta){
         "error-title"
     );
 
- if (peserta.success){
+    if (peserta.success){
 
-    card.classList.add("success-card");
-    title.classList.add("success-title");
+        card.classList.add("success-card");
+        title.classList.add("success-title");
 
-    title.innerHTML = "✅ ABSENSI BERHASIL";
+        title.innerHTML = "✅ ABSENSI BERHASIL";
 
-}else if(peserta.alreadyPresent){
+        document.getElementById("status").innerHTML =
+            "🟢 Absensi berhasil";
 
-    card.classList.add("warning-card");
-    title.classList.add("warning-title");
+    }
+    else if (peserta.alreadyPresent){
 
-    title.innerHTML = "⚠️ SUDAH ABSEN";
+        card.classList.add("warning-card");
+        title.classList.add("warning-title");
 
-}else{
+        title.innerHTML = "⚠️ SUDAH ABSEN";
 
-    card.classList.add("error-card");
-    title.classList.add("error-title");
+        document.getElementById("status").innerHTML =
+            "🟠 Peserta sudah melakukan absensi";
 
-    title.innerHTML = "❌ PESERTA TIDAK DITEMUKAN";
+    }
+    else{
 
-}
+        card.classList.add("error-card");
+        title.classList.add("error-title");
+
+        title.innerHTML = "❌ PESERTA TIDAK DITEMUKAN";
+
+        document.getElementById("status").innerHTML =
+            "🔴 QR tidak terdaftar";
+
+    }
 
     document.getElementById("nama").innerHTML =
         peserta.nama || "-";
@@ -353,6 +364,7 @@ function showAttendanceResult(peserta){
         peserta.jam || "-";
 
 }
+
 // ===========================================
 // QR Berhasil Dibaca
 // ===========================================
