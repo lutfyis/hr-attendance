@@ -66,7 +66,9 @@ async function getParticipant(id) {
 
     try {
 
-        const response = await fetch(`${URL_APPS_SCRIPT}?id=${encodeURIComponent(id)}`);
+        const response = await fetch(
+    `${URL_APPS_SCRIPT}?action=attendance&id=${encodeURIComponent(id)}`
+);
 
         const data = await response.json();
 
