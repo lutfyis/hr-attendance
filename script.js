@@ -445,21 +445,7 @@ if (navigator.vibrate) {
     navigator.vibrate(400);
     }
 
-    card.classList.add("error-card");
-    title.classList.add("error-title");
-   
-    // ❌ Tidak ditemukan
-    document.getElementById("resultTitle").innerHTML =
-        "❌ PESERTA TIDAK DITEMUKAN";
-
-    document.getElementById("nama").innerHTML = "-";
-    document.getElementById("universitas").innerHTML = "-";
-    document.getElementById("strata").innerHTML = "-";
-    document.getElementById("jurusan").innerHTML = "-";
-
-    document.getElementById("status").innerHTML =
-        "🔴 QR tidak terdaftar";
-
+    showAttendanceResult(peserta);
 }
     document.getElementById("jam").innerHTML =
     peserta.jam || "Belum Hadir";
