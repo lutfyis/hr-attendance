@@ -414,6 +414,14 @@ function resetManualAttendance() {
     selectedParticipantId = null;
 
     document.getElementById("searchInput").focus();
+    function resetManualAttendance() {
+
+    console.log("RESET DIPANGGIL");
+
+    document.getElementById("resultCard").style.display = "none";
+
+    ...
+}
 
 }
     
