@@ -181,11 +181,15 @@ async function searchParticipant() {
             data.forEach(p => {
 
                 html += `
-                    <div class="search-item">
-                        <strong>${p.nama}</strong><br>
-                        <small>${p.universitas}</small>
-                    </div>
-                `;
+        <div class="search-item"
+         onclick="showSearchResult('${p.id}')">
+
+        <strong>${p.nama}</strong><br>
+
+        <small>${p.universitas}</small>
+
+        </div>
+`        ;
 
             });
 
@@ -198,6 +202,51 @@ async function searchParticipant() {
         console.error(err);
 
     }
+
+}
+
+// ===========================================
+// TAMPILKAN HASIL PENCARIAN
+// ===========================================
+async function showSearchResult(id){
+
+    const response = await fetch(
+        `${URL_APPS_SCRIPT}?action=find&id=${id}`
+    );
+
+    const peserta = await response.json();
+
+    if(!peserta.success){
+        return;
+    }
+
+    const card = document.getElementById("resultCard");
+    const title = document.getElementById("resultTitle");
+
+    card.style.display="block";
+
+    card.classList.remove(
+        "success-card",
+        "warning-card",
+        "error-card"
+    );
+
+    title.classList.remove(
+        "success-title",
+        "warning-title",
+        "error-title"
+    );
+
+    card.classList.add("warning-card");
+    title.classList.add("warning-title");
+
+    title.innerHTML="👤 DATA PESERTA";
+
+    document.getElementById("nama").innerHTML=peserta.nama;
+    document.getElementById("universitas").innerHTML=peserta.universitas;
+    document.getElementById("strata").innerHTML=peserta.strata;
+    document.getElementById("jurusan").innerHTML=peserta.jurusan;
+    document.getElementById("jam").innerHTML=peserta.jam || "-";
 
 }
 
