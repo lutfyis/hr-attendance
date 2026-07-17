@@ -278,28 +278,49 @@ function showAttendanceResult(peserta){
         "error-title"
     );
 
-    if (peserta.success){
+    if (peserta.success) {
 
-        card.classList.add("success-card");
-        title.classList.add("success-title");
+    playBeep(900,150);
 
-        title.innerHTML="✅ ABSENSI BERHASIL";
-
-    }else if(peserta.alreadyPresent){
-
-        card.classList.add("warning-card");
-        title.classList.add("warning-title");
-
-        title.innerHTML="⚠️ SUDAH ABSEN";
-
-    }else{
-
-        card.classList.add("error-card");
-        title.classList.add("error-title");
-
-        title.innerHTML="❌ PESERTA TIDAK DITEMUKAN";
-
+    if(navigator.vibrate){
+        navigator.vibrate(100);
     }
+
+}else if(peserta.alreadyPresent){
+
+    playBeep(700,120);
+
+    setTimeout(()=>{
+        playBeep(700,120);
+    },180);
+
+    if(navigator.vibrate){
+        navigator.vibrate([80,80,80]);
+    }
+
+}else{
+
+    playBeep(300,500);
+
+    if(navigator.vibrate){
+        navigator.vibrate(400);
+    }
+
+}
+
+showAttendanceResult(peserta);
+
+if(peserta.alreadyPresent){
+
+    document.getElementById("status").innerHTML =
+        "🟠 Peserta sudah melakukan absensi";
+
+}else if(!peserta.success){
+
+    document.getElementById("status").innerHTML =
+        "🔴 QR tidak terdaftar";
+
+}
 
     document.getElementById("nama").innerHTML =
         peserta.nama || "-";
