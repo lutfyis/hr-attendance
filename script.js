@@ -204,6 +204,9 @@ async function searchParticipant() {
     }
 
 }
+//=====================================================
+//Manual attendance
+//=======================================================
 async function manualAttendance(id){
     await showSearchResult(id);
     document.getElementById("searchInput").value="";
@@ -272,13 +275,18 @@ async function confirmManualAttendance(){
     if(!selectedParticipantId){
         return;
     }
+    const btn = document.getElementById("btnManualAttendance");
 
+        btn.disabled = true;
+        btn.innerHTML = "⏳ Menyimpan...";
+    
     const response = await fetch(
         `${URL_APPS_SCRIPT}?action=attendance&id=${selectedParticipantId}`
     );
 
     const result = await response.json();
-
+        btn.disabled = false;
+        btn.innerHTML = "✅ Tandai Hadir";
     console.log(result);
 
 }
