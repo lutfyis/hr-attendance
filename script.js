@@ -260,14 +260,8 @@ async function showSearchResult(id){
 
 const manualArea = document.getElementById("manualAttendanceArea");
 
-if (
-    peserta.status &&
-    peserta.status.toLowerCase() === "belum hadir"
-) {
-    manualArea.style.display = "block";
-} else {
-    manualArea.style.display = "none";
-}
+manualArea.style.display =
+    peserta.status === "Hadir" ? "none" : "block";
 }
 // ===========================================
 // TAMPILKAN RESULT CARD
