@@ -41,6 +41,24 @@ function startScanner() {
             }
 
         },
+        onScanSuccess,
+
+        onScanFailure
+
+    ).then(() => {
+
+        status.innerHTML = "🟢 Ready to Scan";
+
+    }).catch(err => {
+
+        console.error(err);
+
+        status.innerHTML =
+            "🔴 Kamera gagal dibuka";
+
+    });
+
+}
 // ===========================================
 // Ambil Data Peserta dari Apps Script
 // ===========================================
@@ -64,24 +82,6 @@ async function getParticipant(id) {
         };
 
     }
-
-}
-        onScanSuccess,
-
-        onScanFailure
-
-    ).then(() => {
-
-        status.innerHTML = "🟢 Ready to Scan";
-
-    }).catch(err => {
-
-        console.error(err);
-
-        status.innerHTML =
-            "🔴 Kamera gagal dibuka";
-
-    });
 
 }
 
