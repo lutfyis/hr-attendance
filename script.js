@@ -120,6 +120,29 @@ async function loadDashboard() {
     }
 
 }
+
+//============================================
+//Attendance result
+//============================================
+function showAttendanceResult(result){
+
+    document.getElementById("nama").innerHTML =
+        result.nama || "-";
+
+    document.getElementById("universitas").innerHTML =
+        result.universitas || "-";
+
+    document.getElementById("strata").innerHTML =
+        result.strata || "-";
+
+    document.getElementById("jurusan").innerHTML =
+        result.jurusan || "-";
+
+    document.getElementById("jam").innerHTML =
+        result.jam || "-";
+
+}
+
 // ===========================================
 // bunyi beep
 // ===========================================
@@ -418,17 +441,7 @@ if (navigator.vibrate) {
     document.getElementById("resultTitle").innerHTML =
         "✅ ABSENSI BERHASIL";
 
-    document.getElementById("nama").innerHTML =
-        peserta.nama;
-
-    document.getElementById("universitas").innerHTML =
-        peserta.universitas;
-
-    document.getElementById("strata").innerHTML =
-        peserta.strata;
-
-    document.getElementById("jurusan").innerHTML =
-        peserta.jurusan;
+   showAttendanceResult(peserta);
 
 } else if (peserta.alreadyPresent) {
     playBeep(700, 120);
