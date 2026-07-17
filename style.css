@@ -213,3 +213,16 @@ body{
     background:#C62828;
    color:#fff;
 }
+
+.result-card p{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    margin:10px 0;
+}
+
+.label{
+    width:125px;
+    font-weight:bold;
+    flex-shrink:0;
+}
