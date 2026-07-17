@@ -452,7 +452,7 @@ if (navigator.vibrate) {
 
 }
     document.getElementById("jam").innerHTML =
-        new Date().toLocaleTimeString("id-ID");
+    peserta.jam || "Belum Hadir";
 
 
     // Setelah 3 detik kembali ke scanner
