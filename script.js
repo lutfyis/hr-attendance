@@ -117,8 +117,32 @@ async function loadDashboard() {
 
 }
 // ===========================================
-// QR Berhasil Dibaca
+// bunyi beep
 // ===========================================
+function playBeep(frequency = 800, duration = 150) {
+
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+    const oscillator = audioContext.createOscillator();
+    const gainNode = audioContext.createGain();
+
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+
+    oscillator.type = "sine";
+    oscillator.frequency.value = frequency;
+
+    gainNode.gain.value = 0.2;
+
+    oscillator.start();
+
+    setTimeout(() => {
+        oscillator.stop();
+        audioContext.close();
+    }, duration);
+
+}
+
 // ===========================================
 // QR Berhasil Dibaca
 // ===========================================
