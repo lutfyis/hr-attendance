@@ -97,6 +97,8 @@ async function onScanSuccess(decodedText) {
     html5QrCode.stop();
 
     console.log("QR :", decodedText);
+    document.getElementById("status").innerHTML =
+    "📸 QR berhasil dibaca...";
 
     // Sembunyikan scanner
     document.querySelector(".scanner").style.display = "none";
@@ -105,6 +107,22 @@ async function onScanSuccess(decodedText) {
     const card = document.getElementById("resultCard");
 
     card.style.display = "block";
+
+// Loading
+document.getElementById("resultTitle").innerHTML = "⏳ MEMPROSES...";
+
+document.getElementById("nama").innerHTML = "Sedang mengambil data peserta...";
+
+document.getElementById("universitas").innerHTML = "-";
+
+document.getElementById("strata").innerHTML = "-";
+
+document.getElementById("jurusan").innerHTML = "-";
+
+document.getElementById("jam").innerHTML = "-";
+
+document.getElementById("status").innerHTML =
+    "🟠 Mengambil data peserta...";
 
     const peserta = await getParticipant(decodedText);
 
