@@ -209,7 +209,7 @@ async function manualAttendance(id){
     document.getElementById("searchInput").value="";
     document.getElementById("searchResult").innerHTML="";
 
-    await onManualAttendance(id);
+    await showSearchResult(id);
 
 }
 // ===========================================
@@ -278,47 +278,26 @@ function showAttendanceResult(peserta){
         "error-title"
     );
 
-    if (peserta.success) {
+ if (peserta.success){
 
-    playBeep(900,150);
+    card.classList.add("success-card");
+    title.classList.add("success-title");
 
-    if(navigator.vibrate){
-        navigator.vibrate(100);
-    }
+    title.innerHTML = "✅ ABSENSI BERHASIL";
 
 }else if(peserta.alreadyPresent){
 
-    playBeep(700,120);
+    card.classList.add("warning-card");
+    title.classList.add("warning-title");
 
-    setTimeout(()=>{
-        playBeep(700,120);
-    },180);
-
-    if(navigator.vibrate){
-        navigator.vibrate([80,80,80]);
-    }
+    title.innerHTML = "⚠️ SUDAH ABSEN";
 
 }else{
 
-    playBeep(300,500);
+    card.classList.add("error-card");
+    title.classList.add("error-title");
 
-    if(navigator.vibrate){
-        navigator.vibrate(400);
-    }
-
-}
-
-showAttendanceResult(peserta);
-
-if(peserta.alreadyPresent){
-
-    document.getElementById("status").innerHTML =
-        "🟠 Peserta sudah melakukan absensi";
-
-}else if(!peserta.success){
-
-    document.getElementById("status").innerHTML =
-        "🔴 QR tidak terdaftar";
+    title.innerHTML = "❌ PESERTA TIDAK DITEMUKAN";
 
 }
 
