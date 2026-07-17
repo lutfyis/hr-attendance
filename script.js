@@ -205,11 +205,10 @@ async function searchParticipant() {
 
 }
 async function manualAttendance(id){
-
+    await showSearchResult(id);
     document.getElementById("searchInput").value="";
     document.getElementById("searchResult").innerHTML="";
 
-    await showSearchResult(id);
 
 }
 // ===========================================
@@ -222,6 +221,7 @@ async function showSearchResult(id){
     );
 
     const peserta = await response.json();
+    console.log("Response:", peserta);
 
     if(!peserta.success){
         return;
