@@ -4,6 +4,7 @@
 // ===========================================
 
 let html5QrCode;
+const URL_APPS_SCRIPT = "https://script.google.com/macros/s/AKfycbwd1-KCKOQjEWHT4r0z_dQ0VFqEhautnNswIxqFLPIXRNH_sULwMVsCoRALAofIYPYN/exec";
 
 // ===========================================
 // Saat halaman dibuka
@@ -40,7 +41,31 @@ function startScanner() {
             }
 
         },
+// ===========================================
+// Ambil Data Peserta dari Apps Script
+// ===========================================
+async function getParticipant(id) {
 
+    try {
+
+        const response = await fetch(`${URL_APPS_SCRIPT}?id=${encodeURIComponent(id)}`);
+
+        const data = await response.json();
+
+        return data;
+
+    } catch (error) {
+
+        console.error("Gagal mengambil data:", error);
+
+        return {
+            success: false,
+            message: "Tidak dapat terhubung ke server."
+        };
+
+    }
+
+}
         onScanSuccess,
 
         onScanFailure
