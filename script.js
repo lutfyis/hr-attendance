@@ -138,16 +138,23 @@ if (!peserta.success) {
         "🟢 Absensi Berhasil";
 
     // Setelah 3 detik kembali ke scanner
-    setTimeout(() => {
+setTimeout(async () => {
 
-        card.style.display = "none";
+    card.style.display = "none";
 
-        document.querySelector(".scanner").style.display = "block";
+    document.querySelector(".scanner").style.display = "block";
 
-        startScanner();
+    try {
 
-    },3000);
+        await html5QrCode.clear();
 
+    } catch (e) {
+        // abaikan jika scanner sudah bersih
+    }
+
+    startScanner();
+
+}, 3000);
 }
 
 // ===========================================
