@@ -288,3 +288,16 @@ body{
     font-size:13px;
     font-weight:bold;
 }
+.search-item{
+    background:#fff;
+    padding:12px;
+    border-radius:10px;
+    margin-top:8px;
+    border:1px solid #eee;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.search-item:hover{
+    background:#FFF5DD;
+}
