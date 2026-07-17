@@ -221,6 +221,7 @@ async function showSearchResult(id){
     );
 
     const peserta = await response.json();
+    console.log("Status peserta:", peserta.status);
     console.log("Response:", peserta);
 
     if(!peserta.success){
