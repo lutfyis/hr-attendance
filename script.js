@@ -434,9 +434,6 @@ document.getElementById("status").innerHTML =
     await loadDashboard();
 
 showAttendanceResult(peserta);
-    
-    document.getElementById("jam").innerHTML =
-    peserta.jam || "Belum Hadir";
 
 
     // Setelah 3 detik kembali ke scanner
