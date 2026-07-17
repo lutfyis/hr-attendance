@@ -399,9 +399,9 @@ function showAttendanceResult(peserta){
         peserta.jam || "-";
 
 }
-=============================================
+//=============================================
 //reset manual attemdance
-============================================
+//============================================
 function resetManualAttendance() {
 
     document.getElementById("resultCard").style.display = "none";
