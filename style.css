@@ -170,3 +170,22 @@ body{
         transform:translateY(0);
     }
 }
+
+/* ===========================
+   RESULT CARD STATUS
+=========================== */
+
+.success-card{
+    background:#EAF9EF;
+    border-left:6px solid #2E7D32;
+}
+
+.warning-card{
+    background:#FFF8E1;
+    border-left:6px solid #F9A825;
+}
+
+.error-card{
+    background:#FDECEC;
+    border-left:6px solid #C62828;
+}
