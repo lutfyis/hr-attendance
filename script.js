@@ -437,29 +437,7 @@ if (navigator.vibrate) {
    if (navigator.vibrate) {
     navigator.vibrate([80, 80, 80]);
     }
-    card.classList.add("warning-card");
-    title.classList.add("warning-title");
-
-
-    // ⚠️ Sudah hadir
-    document.getElementById("resultTitle").innerHTML =
-        "⚠️ SUDAH ABSEN";
-
-    document.getElementById("nama").innerHTML =
-        peserta.nama;
-
-    document.getElementById("universitas").innerHTML =
-        peserta.universitas;
-
-    document.getElementById("strata").innerHTML =
-        peserta.strata;
-
-    document.getElementById("jurusan").innerHTML =
-        peserta.jurusan;
-
-    document.getElementById("status").innerHTML =
-        "🟠 Peserta sudah melakukan absensi";
-
+   showAttendanceResult(peserta);
 } else {
     playBeep(300, 500);
 
