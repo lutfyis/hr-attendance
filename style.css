@@ -238,3 +238,45 @@ body{
     font-weight:bold;
     flex-shrink:0;
 }
+.manual-search{
+    margin-top:25px;
+}
+
+.divider{
+    display:flex;
+    align-items:center;
+    margin:20px 0;
+}
+
+.divider::before,
+.divider::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:#ddd;
+}
+
+.divider span{
+    margin:0 12px;
+    color:#777;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.manual-search h3{
+    margin-bottom:12px;
+    text-align:center;
+}
+
+#searchInput{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    font-size:15px;
+    box-sizing:border-box;
+}
+
+#searchResult{
+    margin-top:12px;
+}
