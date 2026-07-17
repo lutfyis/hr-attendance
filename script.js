@@ -182,7 +182,7 @@ async function searchParticipant() {
 
                 html += `
         <div class="search-item"
-         onclick="showSearchResult('${p.id}')">
+        onclick="manualAttendance('${p.id}')">
 
         <strong>${p.nama}</strong><br>
 
@@ -204,7 +204,14 @@ async function searchParticipant() {
     }
 
 }
+async function manualAttendance(id){
 
+    document.getElementById("searchInput").value="";
+    document.getElementById("searchResult").innerHTML="";
+
+    await onManualAttendance(id);
+
+}
 // ===========================================
 // TAMPILKAN HASIL PENCARIAN
 // ===========================================
