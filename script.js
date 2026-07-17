@@ -197,6 +197,11 @@ document.getElementById("status").innerHTML =
 
 if (peserta.success) {
 
+    playBeep(900, 150);
+
+if (navigator.vibrate) {
+    navigator.vibrate(100);
+}
     card.classList.add("success-card");
     title.classList.add("success-title");
 
@@ -217,7 +222,15 @@ if (peserta.success) {
         peserta.jurusan;
 
 } else if (peserta.alreadyPresent) {
+    playBeep(700, 120);
 
+    setTimeout(() => {
+    playBeep(700, 120);
+    }, 180);
+
+   if (navigator.vibrate) {
+    navigator.vibrate([80, 80, 80]);
+    }
     card.classList.add("warning-card");
     title.classList.add("warning-title");
 
@@ -242,6 +255,11 @@ if (peserta.success) {
         "🟠 Peserta sudah melakukan absensi";
 
 } else {
+    playBeep(300, 500);
+
+    if (navigator.vibrate) {
+    navigator.vibrate(400);
+    }
 
     card.classList.add("error-card");
     title.classList.add("error-title");
