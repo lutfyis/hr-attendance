@@ -424,8 +424,6 @@ if (peserta.success) {
 if (navigator.vibrate) {
     navigator.vibrate(100);
 }
-    card.classList.add("success-card");
-    title.classList.add("success-title");
 
  showAttendanceResult(peserta);
 
