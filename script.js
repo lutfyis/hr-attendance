@@ -4,7 +4,7 @@
 // ===========================================
 let selectedParticipantId = null;
 let html5QrCode;
-const URL_APPS_SCRIPT = "https://script.google.com/macros/s/AKfycbwd1-KCKOQjEWHT4r0z_dQ0VFqEhautnNswIxqFLPIXRNH_sULwMVsCoRALAofIYPYN/exec";
+const URL_APPS_SCRIPT = "https://script.google.com/macros/s/AKfycbzGkFRsmHRXfBFPNy2Rwk_XQ8R-MGp6URuGtICiIN8r7WJ9XVIdZa7uXqr4gbdeN5jy/exec";
 
 // ===========================================
 // Saat halaman dibuka
